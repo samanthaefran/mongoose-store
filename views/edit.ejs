@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Edit a Bike</title>
+</head>
+<body>
+  <form class="info-changes" action='/bikes/<%=bike._id %>?_method=PUT' method='POST'>
+  name: <input type="text" name="name">
+  description: <input type="text" name="description">
+  img: <input type="text" name="img">
+  price: <input type="text" name="price">
+  qty: <input type="text" name="qty">
+
+    <input type='submit' value='submit changes' />
+  </form>
+</body>
+</html>

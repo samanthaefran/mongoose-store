@@ -1,0 +1,41 @@
+body {
+  background-color: #f8f9fa;
+  font-family: 'Roboto', sans-serif;
+}
+
+img {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 5px;
+  width: 150px;
+}
+
+.bikes-list {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #272727;
+  color: white; 
+
+}
+
+#show-main {
+  display: flex;
+  width: 75%;
+  margin: 0 auto;
+}
+
+.bike-detail {
+  display: flex;
+  flex-direction: column;
+}
+
+.inventory {
+ display: flex;
+ align-items: center;
+}
