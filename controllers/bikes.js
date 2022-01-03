@@ -28,7 +28,7 @@ bikesRouter.delete('/bikes/:id', (req, res) => {
 
 // update route
 bikesRouter.put('/bikes/:id', (req, res) => {
-  Bikes.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedBike) => {
+  Bike.findByIdAndUpdate(req.params.id, req.body, { new: true }, (err, updatedBike) => {
     console.log(req.params.id);
     res.redirect(`/bikes/${req.params.id}`);
   });
@@ -52,8 +52,18 @@ bikesRouter.get('/bikes/:id/edit', (req, res) => {
 // show route
 bikesRouter.get('/bikes/:id', (req, res) => {
   Bike.findById(req.params.id, (err, bike) => {
+    console.log(bike)
     res.render("show.ejs", { bike })
   });
 });
+
+// buy route 
+
+bikesRouter.put('/:id/buy', async (req, res) => { 
+  let product = await Bike.findOne({ _id: req.params.id});
+  await Bike.updateOne({ _id: req.params.id}, {qty: product.qty - 1});
+  await product.save();
+  res.redirect(`/bikes/${req.params.id}`)
+})
 
 module.exports = bikesRouter;
